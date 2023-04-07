@@ -6,35 +6,28 @@ import axios from 'axios';
 
 function App() {
 
-  const [hw, setHW] = useState("")
+  const [recipes, setRecipes] = useState([])
 
-  const getHW = async () => {
+  const getRecipes = async () => {
     axios
-      .get('http://localhost:4000/api/hello_world')
+      .get('http://localhost:4000/api/recipes')
       .then(response => {
-        setHW(response.data)
+        setRecipes(response.data)
       })
       .catch(error => console.error(`There was an error retrieving the items list: ${error}`))
   }
 
   useEffect(() => {
-    getHW()
+    getRecipes()
   }, [])
 
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Typography >DISPLAY {hw}</Typography>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {recipes.map((recipe) => (
+        <>
+          <span>{recipe.title}</span>
+        </>
+      ))}
     </div>
   );
 }
