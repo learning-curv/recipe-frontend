@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import logo from './logo.svg';
 import './App.css';
-import { Paper, Container, Button, List, ListItem, Typography, ListItemAvatar, ListItemText, Avatar, Grid, IconButton } from '@mui/material';
 import axios from 'axios';
+
+import RecipeGrid  from "./components/recipe-grid/RecipeGrid";
 
 function App() {
 
@@ -23,11 +24,7 @@ function App() {
 
   return (
     <div className="App">
-      {recipes.map((recipe) => (
-        <>
-          <span>{recipe.title}</span>
-        </>
-      ))}
+      <RecipeGrid columns={5}></RecipeGrid>
     </div>
   );
 }

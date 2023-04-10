@@ -1,0 +1,16 @@
+.recipe-grid-container {
+    height: auto;
+    width: 100%;
+    padding-left: 32px;
+    padding-right: 32px;
+}
+
+.recipe-grid {
+    height: auto;
+    width: auto;
+    display: grid;
+    grid-template-rows: auto;
+    grid-gap: 12px;
+    margin-top: 32px;
+    margin-bottom: 32px;
+}
