@@ -1,31 +1,20 @@
 import React, { useState, useEffect } from "react";
-import logo from './logo.svg';
-import './App.css';
-import axios from 'axios';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import RecipeGrid  from "./components/recipe-grid/RecipeGrid";
+import Layout from "./layout/Layout"
+import Browse from "./pages/Browse";
+import CookableRecipes from "./pages/CookableRecipes";
 
 function App() {
-
-  const [recipes, setRecipes] = useState([])
-
-  const getRecipes = async () => {
-    axios
-      .get('http://localhost:4000/api/recipes')
-      .then(response => {
-        setRecipes(response.data)
-      })
-      .catch(error => console.error(`There was an error retrieving the items list: ${error}`))
-  }
-
-  useEffect(() => {
-    getRecipes()
-  }, [])
-
   return (
-    <div className="App">
-      <RecipeGrid columns={5}></RecipeGrid>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Browse />} />
+          <Route path="cookable" element={<CookableRecipes />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
