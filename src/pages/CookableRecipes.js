@@ -21,7 +21,7 @@ function CookableRecipes() {
   }, [])
 
   return (
-    <RecipeGrid recipes={recipes} columns={5}></RecipeGrid>
+    <RecipeGrid recipes={recipes}></RecipeGrid>
   );
 }
 

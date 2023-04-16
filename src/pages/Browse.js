@@ -9,8 +9,8 @@ function Browse() {
 
   const getRecipes = async () => {
     axios
-      .get('http://localhost:4000/api/recipes?limit=15&offset=15')
-      // .get('http://localhost:4000/api/recipes/cook/bcc9569b-cedb-4b28-ab2a-28d9e9c03a49?threshold=0.70')
+      // .get('http://nuans-macbook-air.local:4000/api/recipes?limit=100&offset=15')
+      .get('http://localhost:4000/api/recipes?limit=150&offset=15')
       .then(response => {
         setRecipes(response.data)
       })
@@ -22,7 +22,7 @@ function Browse() {
   }, [])
 
   return (
-    <RecipeGrid recipes={recipes} columns={5}></RecipeGrid>
+    <RecipeGrid recipes={recipes}></RecipeGrid>
   );
 }
 

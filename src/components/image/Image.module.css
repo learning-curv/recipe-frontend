@@ -1,0 +1,30 @@
+.image-container {
+    width: 100%;
+    height: 196px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    position: absolute;
+    border-radius: inherit;
+}
+
+.background-image {
+    filter: blur(10px);
+    z-index: 2;
+    width: auto;
+    position: absolute;
+}
+
+.loading-block {
+    width: auto;
+    height: 212px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #000,
+}
+
+.image {
+    z-index: 3;
+}

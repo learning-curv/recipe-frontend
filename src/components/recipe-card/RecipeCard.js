@@ -1,24 +1,24 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useRef } from "react";
 import axios from 'axios';
 
 import classes from './RecipeCard.module.css'
+import Image from '../image/Image'
 
 function RecipeCard({ recipe }) {
-
+  const ref = useRef(null)
   const [expandInfo, setExpandInfo] = useState(false)
-
-  console.log(recipe)
 
   return (
     <div 
-        className={classes['recipe-card']} 
-        onMouseEnter={() => setExpandInfo(true)}
-        onMouseLeave={() => setExpandInfo(false)}
+      ref={ref}
+      className={classes['recipe-card']} 
+      onMouseEnter={() => setExpandInfo(true)}
+      onMouseLeave={() => setExpandInfo(false)}
     >
-      <img 
-        className={classes['recipe-image']} 
+      <Image
         src={recipe['image-link']}
         alt={recipe.title}
+        parentDimensions={{width: ref.current?.offsetWidth, height: ref.current?.offsetHeight}}
       />
       <div className={classes['recipe-info'] + ' ' + (expandInfo ? classes['open'] : '')}>
         <span className={classes['recipe-title']}>{recipe.title}</span>
